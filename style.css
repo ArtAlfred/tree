@@ -80,36 +80,26 @@ h6 {
   height: 100%;
 }
 
-#questions {
-  overflow-y: scroll;
+.card {
+  border: 0;
+  box-shadow: rgba(17, 17, 26, 0.1) 0px 8px 24px,
+    rgba(17, 17, 26, 0.1) 0px 16px 56px, rgba(17, 17, 26, 0.1) 0px 24px 80px;
 }
 
-#questions::-webkit-scrollbar {
+.level_1 {
+  filter: brightness(30%);
+  transition: all 1s ease;
+}
+
+#gameOver {
   display: none;
+  background: #00002e;
+  box-shadow: rgba(17, 17, 26, 0.1) 0px 8px 24px,
+    rgba(17, 17, 26, 0.1) 0px 16px 56px, rgba(17, 17, 26, 0.1) 0px 24px 80px;
 }
 
-.list {
-  background-image: url(./img/bg.png);
-  padding: 0rem 3rem 0rem 3rem;
-}
-
-#q-1 {
-  filter: blur(2.4px);
-}
-
-#q-2 {
-  filter: blur(2.4px);
-}
-
-#q-3 {
-  filter: blur(2.4px);
-}
-
-.modal-fail {
-  background-color: #0a0a44;
-  display: none;
-}
-
-#correct {
-  display: none;
+#monkey,
+#shell,
+#baby_kingkong {
+  transition: all 0.4s ease;
 }

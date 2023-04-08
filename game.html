@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Level 1</title>
+
+    <!-- BOOSTRAP -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
+      crossorigin="anonymous"
+    />
+
+    <!-- GOOGLE FONT -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Roboto:wght@100;300;400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- ICONS -->
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <main class="p-5 home">
+      <section class="quiz-bg p-4 position-relative">
+        <div class="d-flex align-items-center justify-content-between">
+          <div class="d-flex gap-3 align-items-center">
+            <div>
+              <img
+                src="./img/icons/man.png"
+                style="height: 3.6rem"
+                alt="profile"
+              />
+            </div>
+
+            <div>
+              <h6 class="text-warning">Art Alfred.</h6>
+              <span class="text-light">Student</span>
+            </div>
+          </div>
+
+          <div class="">
+            <div class="d-flex gap-4 px-3">
+              <img
+                src="./img/icons/facebook.png"
+                style="height: 1.8rem"
+                alt="facebook"
+              />
+              <img
+                src="./img/icons/instagram.png"
+                style="height: 1.8rem"
+                alt="facebook"
+              />
+              <img
+                src="./img/icons/twitter.png"
+                style="height: 1.8rem"
+                alt="facebook"
+              />
+            </div>
+          </div>
+        </div>
+        <div class="row gx-5">
+          <div class="col-12 col-md-8" style="margin-top: 8rem">
+            <div class="position-relative">
+              <div class="card level_1 position-relative" style="width: 100%">
+                <img src="./img/stage_1.png" class="card-img-top" alt="..." />
+
+                <img
+                  class="position-absolute"
+                  style="height: 6rem"
+                  src="./img/objects/1.png"
+                  alt="monkey"
+                  id="monkey"
+                  onclick="detectClicked()"
+                />
+
+                <img
+                  class="position-absolute bottom-0 start-50 translate-middle-x"
+                  style="height: 4rem"
+                  src="./img/objects/2.png"
+                  alt="shell"
+                  id="shell"
+                  onclick="detectClicked()"
+                />
+
+                <img
+                  class="position-absolute translate-middle"
+                  style="height: 6rem; top: 80%; left: 80%"
+                  src="./img/objects/3.png"
+                  alt="shell"
+                  id="baby_kingkong"
+                  onclick="detectClicked()"
+                />
+              </div>
+              <button
+                class="btn btn-warning position-absolute top-50 start-50 translate-middle px-5 py-2 start"
+                onclick="start()"
+              >
+                Start
+              </button>
+            </div>
+          </div>
+
+          <div class="col-12 col-md-4" style="margin-top: 8rem">
+            <div class="d-flex justify-content-center">
+              <p class="text-light" id="star_tree_1"></p>
+            </div>
+
+            <span class="text-light">Time limit</span>
+            <h1 class="text-light" id="time">8</h1>
+
+            <ul class="p-0" style="margin-top: 2rem">
+              <h4 class="text-light text-warning">Task</h4>
+              <li class="text-light mt-2 monkey-text">Monkey</li>
+              <li class="text-light shell-text">Baby Kingkong</li>
+              <li class="text-light babyKingkong-text">Shell</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <div
+        id="gameOver"
+        class="align-items-center position-absolute top-50 start-50 translate-middle text-light fs-1 px-5 py-3"
+      >
+        You run out of time
+        <center>
+          <button class="btn btn-warning w-50" onclick="try_again()">
+            Try again
+          </button>
+        </center>
+      </div>
+    </main>
+
+    <!-- BOOSTRAP JAVASCRIPT -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- SCRIPT JAVASCRIPT -->
+    <script src="./index.js"></script>
+  </body>
+</html>

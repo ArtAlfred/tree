@@ -1,165 +1,107 @@
-const timer = document.querySelector("#timer");
-const okay = document.querySelector("#okay");
-const thanks = document.querySelector("#thanks");
-const start = document.querySelector("#start");
-const start_Again = document.querySelector("#start_Again");
+const level_1 = document.querySelector(".level_1");
+const starts = document.querySelector(".start");
+const gameOver = document.querySelector("#gameOver");
 
-const w_1_1 = document.querySelectorAll(".w_1_1");
-const w_2_2 = document.querySelectorAll(".w_2_2");
-const w_3_3 = document.querySelectorAll(".w_3_3");
+const monkeyBtn = document.querySelector("#monkey");
+const shellBtn = document.querySelector("#shell");
+const babyKingkongBtn = document.querySelector("#baby_kingkong");
 
-let countDown = 5;
+const monkey_text = document.querySelector(".monkey-text");
+const shell_text = document.querySelector(".shell-text");
+const babyKingkong_text = document.querySelector(".babyKingkong-text");
 
-let countdownInterval;
+const time = document.querySelector("#time");
 
-function startAgain() {
-  document.querySelector("#q-1").style.filter = "blur(0px)";
-  document.querySelector("#q-2").style.filter = "blur(0px)";
-  document.querySelector("#q-3").style.filter = "blur(0px)";
-
-  let countDown = 7;
-
-  countdownInterval = setInterval(count, 1000);
-
-  function count() {
-    timer.innerHTML = countDown;
-    countDown--;
-    if (countDown < 0) {
-      clearInterval(countdownInterval);
-      document.querySelector(".modal-fail").style.display = "block";
-      document.querySelector("#q-1").style.filter = "blur(3px)";
-      document.querySelector("#q-2").style.filter = "blur(3px)";
-      document.querySelector("#q-3").style.filter = "blur(3px)";
-
-      ans_1.style.borderColor = "";
-      ans_1.style.color = "";
-      q_1.style.border = "";
-
-      w_1_1.forEach((btn) => {
-        btn.disabled = "";
-      });
-
-      ans_2.style.borderColor = "";
-      ans_2.style.color = "";
-      q_2.style.border = "";
-
-      w_2_2.forEach((btn) => {
-        btn.disabled = "";
-      });
-
-      ans_3.style.borderColor = "";
-      ans_3.style.color = "";
-      q_3.style.border = "";
-
-      w_3_3.forEach((btn) => {
-        btn.disabled = "";
-      });
-    }
-  }
-}
-
-let btnClicked = 0;
-
-function perfectScore() {
-  btnClicked++;
-
-  if (btnClicked === 3) {
-    clearInterval(countdownInterval);
-    document.querySelector(".modal-fail").style.display = "block";
-    document.querySelector("#q-1").style.filter = "blur(3px)";
-    document.querySelector("#q-2").style.filter = "blur(3px)";
-    document.querySelector("#q-3").style.filter = "blur(3px)";
-
-    ans_1.style.borderColor = "";
-    ans_1.style.color = "";
-    q_1.style.border = "";
-
-    w_1_1.forEach((btn) => {
-      btn.disabled = "";
-    });
-
-    ans_2.style.borderColor = "";
-    ans_2.style.color = "";
-    q_2.style.border = "";
-
-    w_2_2.forEach((btn) => {
-      btn.disabled = "";
-    });
-
-    ans_3.style.borderColor = "";
-    ans_3.style.color = "";
-    q_3.style.border = "";
-
-    w_3_3.forEach((btn) => {
-      btn.disabled = "";
-    });
-  }
-}
-
-okay.addEventListener("click", () => {
-  document.querySelector(".modal-fail").style.display = "none";
-});
-
-// TREE
+// STAR
 let star = "";
-let star_2 = "";
-let star_3 = "";
 
-for (let i = 0; i <= 5; i++) {
+for (let i = 0; i <= 10; i++) {
   document.getElementById("star_tree_1").innerHTML +=
-    "<center>" + star + "<br>" + "</center>";
+    "<center><span>" + star + "</span><br></center>";
   star += "*";
 }
 
-for (let i = 0; i <= 5; i++) {
-  document.getElementById("star_tree_2").innerHTML +=
-    "<center>" + star_2 + "<br>" + "</center>";
-  star_2 += "*";
+let stars = document.querySelectorAll("#star_tree_1 span");
+
+function sparkle() {
+  let colors = ["red", "green", "blue", "yellow", "pink"];
+  let chosen_color = Math.floor(Math.random() * colors.length);
+  stars.forEach(function (star) {
+    star.style.color = colors[chosen_color];
+  });
 }
 
-for (let i = 0; i <= 5; i++) {
-  document.getElementById("star_tree_3").innerHTML +=
-    "<center>" + star_3 + "<br>" + "</center>";
-  star_3 += "*";
+let count = 8;
+let countDown;
+
+function timer() {
+  time.innerHTML = count;
+  count--;
+
+  if (count < 0) {
+    clearInterval(countDown);
+    setTimeout(game_Over, 500);
+
+    level_1.style.filter = "brightness(30%)";
+    starts.style.display = "block";
+  }
 }
 
-const ans_1 = document.querySelector("#ans_1");
-const ans_2 = document.querySelector("#ans_2");
-const ans_3 = document.querySelector("#ans_3");
+function start() {
+  clearInterval(countDown);
+  count = 8;
+  countDown = setInterval(timer, 1000);
+  level_1.style.filter = "brightness(100%)";
+  starts.style.display = "none";
 
-const q_1 = document.querySelector("#q-1");
-const q_2 = document.querySelector("#q-2");
-const q_3 = document.querySelector("#q-3");
+  function monkey(brightness, text) {
+    brightness.style.filter = "";
+    text.classList.remove("text-decoration-line-through");
+    text.classList.remove("opacity-25");
+  }
 
-ans_1.addEventListener("click", () => {
-  ans_1.style.borderColor = "yellow";
-  ans_1.style.color = "yellow";
+  monkey(monkeyBtn, monkey_text);
+  monkey(shellBtn, shell_text);
+  monkey(babyKingkongBtn, babyKingkong_text);
 
-  q_1.style.border = "1px solid yellow";
+  clickImg = 0;
 
-  w_1_1.forEach((btn) => {
-    btn.disabled = true;
+  clearInterval(interval);
+  stars.forEach(function (star) {
+    star.style.color = "";
   });
-});
+}
 
-ans_2.addEventListener("click", () => {
-  ans_2.style.borderColor = "yellow";
-  ans_2.style.color = "yellow";
+function game_Over() {
+  gameOver.style.display = "grid";
+}
 
-  q_2.style.border = "1px solid yellow";
+function try_again() {
+  gameOver.style.display = "none";
+}
 
-  w_2_2.forEach((btn) => {
-    btn.disabled = true;
-  });
-});
+function monkey(brightness, text) {
+  brightness.style.filter = "brightness(30%)";
+  text.classList.add("text-decoration-line-through");
+  text.classList.add("opacity-25");
+}
 
-ans_3.addEventListener("click", () => {
-  ans_3.style.borderColor = "yellow";
-  ans_3.style.color = "yellow";
+monkeyBtn.addEventListener("click", () => monkey(monkeyBtn, monkey_text));
+shellBtn.addEventListener("click", () => monkey(shellBtn, shell_text));
+babyKingkongBtn.addEventListener("click", () =>
+  monkey(babyKingkongBtn, babyKingkong_text)
+);
 
-  q_3.style.border = "1px solid yellow";
+let clickImg = 0;
 
-  w_3_3.forEach((btn) => {
-    btn.disabled = true;
-  });
-});
+function detectClicked() {
+  clickImg++;
+
+  if (clickImg >= 3) {
+    clearInterval(countDown);
+    level_1.style.filter = "brightness(30%)";
+    starts.style.display = "block";
+
+    interval = setInterval(sparkle, 400);
+  }
+}
