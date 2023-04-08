@@ -1,0 +1,115 @@
+html {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  overflow-x: hidden;
+  font-family: "Lilita One", cursive !important;
+  overflow-y: hidden;
+}
+
+/* font-family: 'Lilita One', cursive;
+font-family: 'Roboto', sans-serif; */
+
+main {
+  background: #00002e;
+  height: 100vh;
+}
+
+li {
+  list-style: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-bottom: 0 !important;
+}
+
+.fs-5 {
+  font-size: 17px !important;
+}
+
+.fs-6 {
+  font-size: 14px !important;
+}
+
+.btn-outline-warning {
+  color: #fff;
+  /* font-family: "Roboto", sans-serif; */
+  border-color: #999;
+}
+
+.text-warning {
+  color: #ff9c07 !important;
+}
+
+.btn-warning {
+  background: #ff9c07 !important;
+}
+
+.btn-warning:hover {
+  background: #eeab46 !important;
+}
+
+/* MAIN */
+
+.home {
+  background-image: url(./img/home.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.quiz-bg {
+  background-image: url(./img/background.png);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 90vh;
+  width: 100%;
+}
+
+.row {
+  height: 100%;
+}
+
+#questions {
+  overflow-y: scroll;
+}
+
+#questions::-webkit-scrollbar {
+  display: none;
+}
+
+.list {
+  background-image: url(./img/bg.png);
+  padding: 0rem 3rem 0rem 3rem;
+}
+
+#q-1 {
+  filter: blur(2.4px);
+}
+
+#q-2 {
+  filter: blur(2.4px);
+}
+
+#q-3 {
+  filter: blur(2.4px);
+}
+
+.modal-fail {
+  background-color: #0a0a44;
+  display: none;
+}
+
+#correct {
+  display: none;
+}
