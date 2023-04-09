@@ -33,7 +33,7 @@ function sparkle() {
   colorDisplay.innerHTML = colors;
 }
 
-let count = 8;
+let count = 7;
 let countDown;
 let interval;
 
@@ -54,7 +54,7 @@ function timer() {
 
 function start() {
   clearInterval(countDown);
-  count = 8;
+  count = 7;
   countDown = setInterval(timer, 1000);
   starts.style.display = "none";
 
