@@ -30,103 +30,121 @@
     <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
-    <main class="p-5 home">
-      <section class="quiz-bg p-4 position-relative">
-        <div class="d-flex align-items-center justify-content-between">
-          <div class="d-flex gap-3 align-items-center">
-            <div>
+    <main class="px-5 home position-relative">
+      <div class="position-absolute start-0 p-3 time_limit">
+        <img src="./img/time.svg" alt="time" />
+        <h1
+          class="text-dark fs-2 d-flex justify-content-center"
+          style="margin-top: -4.2rem"
+          id="time"
+        >
+          8
+        </h1>
+        <button
+          class="btn btn-warning position-absolute px-5 py-2 start"
+          onclick="start()"
+        >
+          Start
+        </button>
+      </div>
+
+      <img
+        class="position-absolute top-0 end-0"
+        style="height: 6rem"
+        src="./img/objects/1.png"
+        alt="monkey"
+        id="monkey"
+        onclick="detectClicked()"
+      />
+
+      <img
+        class="position-absolute bottom-0 start-50 translate-middle-x"
+        style="height: 4rem"
+        src="./img/objects/2.png"
+        alt="shell"
+        id="shell"
+        onclick="detectClicked()"
+      />
+
+      <img
+        class="position-absolute translate-middle"
+        style="height: 6rem; top: 80%; left: 80%"
+        src="./img/objects/3.png"
+        alt="shell"
+        id="baby_kingkong"
+        onclick="detectClicked()"
+      />
+
+      <div class="position-absolute bottom-0 start-0 p-2">
+        <div
+          class="position-absolute translate-middle-y tree_parent"
+          style="top: -60%; left: 0"
+        >
+          <div class="position-relative">
+            <div class="tree position-relative">
               <img
-                src="./img/icons/man.png"
-                style="height: 3.6rem"
-                alt="profile"
+                class="tree_img"
+                src="./img/tree.png"
+                alt="tree"
+                style="height: 20rem"
               />
+              <p class="text-light" id="star_tree_1">
+                <span><ion-icon name="leaf-sharp"></ion-icon></span>
+                <span><ion-icon name="leaf-sharp"></ion-icon></span>
+                <span><ion-icon name="leaf-sharp"></ion-icon></span>
+                <span><ion-icon name="leaf-sharp"></ion-icon></span>
+                <span><ion-icon name="leaf-sharp"></ion-icon></span>
+                <span><ion-icon name="leaf-sharp"></ion-icon></span>
+                <span><ion-icon name="leaf-sharp"></ion-icon></span>
+                <span><ion-icon name="leaf-sharp"></ion-icon></span>
+                <span><ion-icon name="leaf-sharp"></ion-icon></span>
+                <span><ion-icon name="leaf-sharp"></ion-icon></span>
+                <span><ion-icon name="leaf-sharp"></ion-icon></span>
+                <span><ion-icon name="leaf-sharp"></ion-icon></span>
+                <span><ion-icon name="leaf-sharp"></ion-icon></span>
+                <span><ion-icon name="leaf-sharp"></ion-icon></span>
+                <span><ion-icon name="leaf-sharp"></ion-icon></span>
+                <span><ion-icon name="leaf-sharp"></ion-icon></span>
+                <span><ion-icon name="leaf-sharp"></ion-icon></span>
+                <span><ion-icon name="leaf-sharp"></ion-icon></span>
+                <span><ion-icon name="leaf-sharp"></ion-icon></span>
+                <span><ion-icon name="leaf-sharp"></ion-icon></span>
+                <span><ion-icon name="leaf-sharp"></ion-icon></span>
+                <span><ion-icon name="leaf-sharp"></ion-icon></span>
+                <span><ion-icon name="leaf-sharp"></ion-icon></span>
+                <span><ion-icon name="leaf-sharp"></ion-icon></span>
+                <span><ion-icon name="leaf-sharp"></ion-icon></span>
+                <span><ion-icon name="leaf-sharp"></ion-icon></span>
+                <span><ion-icon name="leaf-sharp"></ion-icon></span>
+                <span><ion-icon name="leaf-sharp"></ion-icon></span>
+                <span><ion-icon name="leaf-sharp"></ion-icon></span>
+              </p>
             </div>
-
-            <div>
-              <h6 class="text-warning">Art Alfred.</h6>
-              <span class="text-light">Student</span>
-            </div>
-          </div>
-
-          <div class="">
-            <div class="d-flex gap-4 px-3">
-              <img
-                src="./img/icons/facebook.png"
-                style="height: 1.8rem"
-                alt="facebook"
-              />
-              <img
-                src="./img/icons/instagram.png"
-                style="height: 1.8rem"
-                alt="facebook"
-              />
-              <img
-                src="./img/icons/twitter.png"
-                style="height: 1.8rem"
-                alt="facebook"
-              />
-            </div>
-          </div>
-        </div>
-        <div class="row gx-5">
-          <div class="col-12 col-md-8" style="margin-top: 8rem">
-            <div class="position-relative">
-              <div class="card level_1 position-relative" style="width: 100%">
-                <img src="./img/stage_1.png" class="card-img-top" alt="..." />
-
-                <img
-                  class="position-absolute"
-                  style="height: 6rem"
-                  src="./img/objects/1.png"
-                  alt="monkey"
-                  id="monkey"
-                  onclick="detectClicked()"
-                />
-
-                <img
-                  class="position-absolute bottom-0 start-50 translate-middle-x"
-                  style="height: 4rem"
-                  src="./img/objects/2.png"
-                  alt="shell"
-                  id="shell"
-                  onclick="detectClicked()"
-                />
-
-                <img
-                  class="position-absolute translate-middle"
-                  style="height: 6rem; top: 80%; left: 80%"
-                  src="./img/objects/3.png"
-                  alt="shell"
-                  id="baby_kingkong"
-                  onclick="detectClicked()"
-                />
-              </div>
-              <button
-                class="btn btn-warning position-absolute top-50 start-50 translate-middle px-5 py-2 start"
-                onclick="start()"
+            <div
+              class="position-absolute p-3 color_bg"
+              style="top: 80%; left: 3%"
+            >
+              <img src="./img/time.svg" alt="time" />
+              <h1
+                class="text-dark fs-5 d-flex justify-content-center"
+                style="margin-top: -3.8rem"
+                id="color_display"
               >
-                Start
-              </button>
+                #fffff
+              </h1>
             </div>
-          </div>
-
-          <div class="col-12 col-md-4" style="margin-top: 8rem">
-            <div class="d-flex justify-content-center">
-              <p class="text-light" id="star_tree_1"></p>
-            </div>
-
-            <span class="text-light">Time limit</span>
-            <h1 class="text-light" id="time">8</h1>
-
-            <ul class="p-0" style="margin-top: 2rem">
-              <h4 class="text-light text-warning">Task</h4>
-              <li class="text-light mt-2 monkey-text">Monkey</li>
-              <li class="text-light shell-text">Baby Kingkong</li>
-              <li class="text-light babyKingkong-text">Shell</li>
-            </ul>
           </div>
         </div>
-      </section>
+        <ul class="p-0 list-bg">
+          <center class="d-grid list-task" style="gap: 41px">
+            <li class="text-dark monkey-text" style="margin-top: 60px">
+              Monkey
+            </li>
+            <li class="text-dark shell-text">Shell</li>
+            <li class="text-dark babyKingkong-text">Kingkong</li>
+          </center>
+        </ul>
+      </div>
 
       <div
         id="gameOver"

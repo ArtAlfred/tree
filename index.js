@@ -1,4 +1,3 @@
-const level_1 = document.querySelector(".level_1");
 const starts = document.querySelector(".start");
 const gameOver = document.querySelector("#gameOver");
 
@@ -12,27 +11,31 @@ const babyKingkong_text = document.querySelector(".babyKingkong-text");
 
 const time = document.querySelector("#time");
 
+const colorDisplay = document.querySelector("#color_display");
+
 // STAR
 let star = "";
-
-for (let i = 0; i <= 10; i++) {
-  document.getElementById("star_tree_1").innerHTML +=
-    "<center><span>" + star + "</span><br></center>";
-  star += "*";
-}
-
 let stars = document.querySelectorAll("#star_tree_1 span");
 
+let colors;
+
 function sparkle() {
-  let colors = ["red", "green", "blue", "yellow", "pink"];
-  let chosen_color = Math.floor(Math.random() * colors.length);
-  stars.forEach(function (star) {
-    star.style.color = colors[chosen_color];
+  let red = Math.floor(Math.random() * 256);
+  let green = Math.floor(Math.random() * 256);
+  let blue = Math.floor(Math.random() * 256);
+
+  colors = `rgb(${red}, ${green}, ${blue})`;
+
+  stars.forEach((star) => {
+    star.style.color = colors;
   });
+
+  colorDisplay.innerHTML = colors;
 }
 
 let count = 8;
 let countDown;
+let interval;
 
 function timer() {
   time.innerHTML = count;
@@ -42,7 +45,6 @@ function timer() {
     clearInterval(countDown);
     setTimeout(game_Over, 500);
 
-    level_1.style.filter = "brightness(30%)";
     starts.style.display = "block";
   }
 }
@@ -51,7 +53,6 @@ function start() {
   clearInterval(countDown);
   count = 8;
   countDown = setInterval(timer, 1000);
-  level_1.style.filter = "brightness(100%)";
   starts.style.display = "none";
 
   function monkey(brightness, text) {
@@ -67,9 +68,9 @@ function start() {
   clickImg = 0;
 
   clearInterval(interval);
-  stars.forEach(function (star) {
-    star.style.color = "";
-  });
+
+  const findSound = new Audio("./img/sound/btn.mp3");
+  findSound.play();
 }
 
 function game_Over() {
@@ -84,6 +85,9 @@ function monkey(brightness, text) {
   brightness.style.filter = "brightness(30%)";
   text.classList.add("text-decoration-line-through");
   text.classList.add("opacity-25");
+
+  const sound = new Audio("./img/sound/pop.mp3");
+  sound.play();
 }
 
 monkeyBtn.addEventListener("click", () => monkey(monkeyBtn, monkey_text));
@@ -99,9 +103,11 @@ function detectClicked() {
 
   if (clickImg >= 3) {
     clearInterval(countDown);
-    level_1.style.filter = "brightness(30%)";
     starts.style.display = "block";
 
     interval = setInterval(sparkle, 400);
+
+    const findSound = new Audio("./img/sound/congrats.mp3");
+    findSound.play();
   }
 }
