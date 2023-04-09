@@ -46,6 +46,9 @@ function timer() {
     setTimeout(game_Over, 500);
 
     starts.style.display = "block";
+
+    const sad = new Audio("./img/sound/sad.mp3");
+    sad.play();
   }
 }
 

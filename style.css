@@ -444,4 +444,16 @@ span:nth-child(29) {
     padding: 0.1rem 1rem !important;
     font-size: 12px;
   }
+
+  #gameOver {
+    font-size: 1.4rem !important;
+    width: 60% !important;
+    text-align: center !important;
+    padding: 1rem !important;
+  }
+
+  #gameOver button {
+    margin-top: 1rem;
+    width: 100% !important;
+  }
 }
